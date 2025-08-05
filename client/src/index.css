@@ -1,0 +1,402 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f2ee;
+  color: rgba(0,0,0,0.9);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* LinkedIn-style Navigation */
+.navbar-brand {
+  font-weight: 700;
+  color: #0a66c2 !important;
+  font-size: 1.8rem;
+  letter-spacing: -0.5px;
+}
+
+.navbar-linkedin {
+  background-color: white !important;
+  border-bottom: 1px solid #e9ecef;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.08);
+  padding: 0.5rem 0;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(0,0,0,0.6) !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.75rem 1rem !important;
+  transition: color 0.2s;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0a66c2 !important;
+}
+
+/* Enhanced LinkedIn-style Navbar Items */
+.nav-item-custom {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px !important;
+  margin: 0 4px;
+  text-decoration: none !important;
+  color: #666 !important;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  min-width: 80px;
+}
+
+.nav-item-custom:hover {
+  color: #000 !important;
+  background-color: rgba(0,0,0,0.08);
+}
+
+.nav-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.nav-icon-container i {
+  font-size: 20px;
+}
+
+.nav-text {
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.profile-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #0a66c2;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* LinkedIn-style Buttons */
+.btn-linkedin {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  color: white;
+  font-weight: 600;
+  border-radius: 24px;
+  padding: 8px 24px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.btn-linkedin:hover {
+  background-color: #004182;
+  border-color: #004182;
+  color: white;
+  transform: scale(1.05);
+}
+
+.btn-outline-linkedin {
+  color: #0a66c2;
+  border-color: #0a66c2;
+  font-weight: 600;
+  border-radius: 24px;
+  padding: 8px 24px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.btn-outline-linkedin:hover {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* LinkedIn-style Cards */
+.card {
+  border: none;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.08);
+  border-radius: 8px;
+  background-color: white;
+}
+
+.post-card {
+  margin-bottom: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.post-card:hover {
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 4px 8px rgba(0,0,0,.12);
+}
+
+.create-post-card {
+  margin-bottom: 8px;
+  transition: box-shadow 0.2s;
+}
+
+.create-post-card:hover {
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 4px 8px rgba(0,0,0,.12);
+}
+
+/* Profile Pictures */
+.profile-picture {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e9ecef;
+}
+
+.profile-picture-large {
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.08);
+}
+
+.profile-picture-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Post Content Styling */
+.post-content {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(0,0,0,0.9);
+}
+
+.post-header {
+  margin-bottom: 12px;
+}
+
+.post-author-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: rgba(0,0,0,0.9);
+  text-decoration: none;
+  line-height: 1.33333;
+}
+
+.post-author-name:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+}
+
+.post-author-title {
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.6);
+  line-height: 1.33333;
+}
+
+.post-time {
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.6);
+}
+
+/* Post Actions */
+.post-actions {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 8px;
+  margin-top: 12px;
+}
+
+.post-action-btn {
+  background: none;
+  border: none;
+  color: rgba(0,0,0,0.6);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  margin-right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.post-action-btn:hover {
+  background-color: rgba(0,0,0,0.08);
+  color: #0a66c2;
+}
+
+.post-action-btn.liked {
+  color: #0a66c2;
+  font-weight: 600;
+}
+
+.post-action-btn .reaction-icon {
+  font-size: 1rem;
+}
+
+/* Comments */
+.comment-section {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.comment-item {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background-color: #f3f2ef;
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+.comment-author {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.9);
+  margin-bottom: 2px;
+}
+
+.comment-content {
+  color: rgba(0,0,0,0.9);
+  line-height: 1.33333;
+}
+
+.comment-time {
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.6);
+  margin-top: 4px;
+}
+
+/* Form Controls */
+.form-control:focus {
+  border-color: #0a66c2;
+  box-shadow: 0 0 0 2px rgba(10, 102, 194, 0.2);
+}
+
+.form-control {
+  font-size: 0.875rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+}
+
+/* Alert Styling */
+.alert-custom {
+  border-radius: 8px;
+  border: none;
+  font-size: 0.875rem;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Text Colors */
+.text-muted {
+  color: rgba(0,0,0,0.6) !important;
+}
+
+.text-linkedin {
+  color: #0a66c2 !important;
+}
+
+/* Layout Improvements */
+.main-content {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 24px 12px;
+}
+
+/* Create Post Improvements */
+.create-post-prompt {
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 24px;
+  padding: 12px 16px;
+  background-color: transparent;
+  color: rgba(0,0,0,0.6);
+  cursor: text;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.create-post-prompt:hover {
+  background-color: rgba(0,0,0,0.04);
+}
+
+/* Professional Stats */
+.post-stats {
+  font-size: 0.75rem;
+  color: rgba(0,0,0,0.6);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-stats-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.post-stats-right {
+  cursor: pointer;
+}
+
+.post-stats-right:hover {
+  color: #0a66c2;
+  text-decoration: underline;
+}
+
+/* Engagement Icons */
+.engagement-icons {
+  display: flex;
+  gap: 2px;
+  margin-right: 4px;
+}
+
+.engagement-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+.like-icon {
+  background-color: #0a66c2;
+}
+
+.love-icon {
+  background-color: #df704d;
+}
+
+.celebrate-icon {
+  background-color: #6dae4f;
+}
