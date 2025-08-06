@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Navbar as BootstrapNavbar, Nav, Container, Button, Form, InputGroup } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const { user, logout, isAuthenticated } = useAuth();
+  const { theme, toggleTheme, isDark } = useTheme();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
@@ -222,6 +224,18 @@ const Navbar = () => {
               </Nav.Link>
 
               <div className="nav-divider"></div>
+
+              <Nav.Link 
+                onClick={toggleTheme}
+                className="nav-item-custom theme-toggle"
+                style={{ cursor: 'pointer' }}
+                title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+              >
+                <div className="nav-icon-container">
+                  <i className={`fas ${isDark ? 'fa-sun' : 'fa-moon'}`}></i>
+                </div>
+                <span className="nav-text">{isDark ? 'Light' : 'Dark'}</span>
+              </Nav.Link>
 
               <Nav.Link className="nav-item-custom work-dropdown">
                 <div className="nav-icon-container">
