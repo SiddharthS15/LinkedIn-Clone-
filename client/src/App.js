@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { useAuth } from './context/AuthContext';
-import { ThemeProvider } from './context/ThemeContext';
 
 // Components
 import Navbar from './components/Navbar';
@@ -80,11 +79,7 @@ function AppContent() {
 }
 
 function App() {
-  return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
-  );
+  return <AppContent />;
 }
 
 export default App;
