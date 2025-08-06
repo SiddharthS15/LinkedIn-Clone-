@@ -18,15 +18,24 @@ code {
 .navbar-brand {
   font-weight: 700;
   color: #0a66c2 !important;
-  font-size: 1.8rem;
+  font-size: 2rem;
   letter-spacing: -0.5px;
+  margin-right: 24px;
+}
+
+.navbar-brand i {
+  font-size: 2.2rem;
+  margin-right: 8px;
 }
 
 .navbar-linkedin {
   background-color: white !important;
   border-bottom: 1px solid #e9ecef;
   box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.08);
-  padding: 0.5rem 0;
+  padding: 8px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
 }
 
 .navbar-nav .nav-link {
@@ -41,23 +50,168 @@ code {
   color: #0a66c2 !important;
 }
 
-/* Enhanced LinkedIn-style Navbar Items */
+/* ===== ENHANCED SEARCH STYLES ===== */
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.search-input-group {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+}
+
+.search-input-group.focused {
+  box-shadow: 0 0 0 2px #0a66c2;
+  transform: scale(1.02);
+}
+
+.search-icon {
+  background-color: #eef3f8 !important;
+  border: none !important;
+  color: #666;
+  padding: 8px 12px;
+}
+
+.search-input {
+  background-color: #eef3f8 !important;
+  border: none !important;
+  font-size: 14px;
+  padding: 8px 12px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.search-input::placeholder {
+  color: #666;
+  font-weight: 400;
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1050;
+  margin-top: 4px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.suggestions-header {
+  padding: 8px 0;
+}
+
+.suggestions-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  padding: 8px 16px 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #f3f2ef;
+}
+
+.suggestion-item.search-for {
+  border-bottom: 1px solid #e9ecef;
+  font-weight: 600;
+  color: #0a66c2;
+}
+
+.suggestion-item.search-for:hover {
+  background-color: #e7f3ff;
+}
+
+.suggestion-item i {
+  width: 16px;
+  margin-right: 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+.suggestion-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestion-text {
+  font-size: 14px;
+  color: #000;
+  font-weight: 400;
+}
+
+.suggestion-subtitle {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Responsive search */
+@media (max-width: 768px) {
+  .search-container {
+    max-width: 200px;
+  }
+  
+  .search-suggestions {
+    left: -50px;
+    right: -50px;
+    width: calc(100vw - 40px);
+    max-width: 350px;
+  }
+}
+
+/* ===== EXISTING NAVBAR STYLES ===== */
 .nav-item-custom {
   display: flex !important;
   flex-direction: column;
   align-items: center;
-  padding: 12px 8px !important;
-  margin: 0 4px;
+  padding: 8px 12px !important;
+  margin: 0 2px;
   text-decoration: none !important;
   color: #666 !important;
   transition: all 0.2s ease;
   border-radius: 4px;
   min-width: 80px;
+  position: relative;
 }
 
 .nav-item-custom:hover {
   color: #000 !important;
   background-color: rgba(0,0,0,0.08);
+}
+
+.nav-item-custom.active {
+  color: #000 !important;
+}
+
+.nav-item-custom.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  border-radius: 1px;
 }
 
 .nav-icon-container {
@@ -67,6 +221,7 @@ code {
   width: 24px;
   height: 24px;
   margin-bottom: 4px;
+  position: relative;
 }
 
 .nav-icon-container i {
@@ -91,6 +246,50 @@ code {
   justify-content: center;
   font-size: 12px;
   font-weight: 600;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.nav-item-custom:hover .profile-avatar {
+  border-color: #0a66c2;
+}
+
+/* Notification badge */
+.notification-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #e60023;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+/* Navigation divider */
+.nav-divider {
+  width: 1px;
+  height: 32px;
+  background-color: #e9ecef;
+  margin: 16px 8px 0;
+  align-self: flex-start;
+}
+
+/* Work dropdown and logout styling */
+.work-dropdown {
+  border-left: 1px solid #e9ecef;
+  margin-left: 8px;
+  padding-left: 16px !important;
+}
+
+.logout-item {
+  margin-left: 8px;
 }
 
 /* LinkedIn-style Buttons */
@@ -162,6 +361,8 @@ code {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #e9ecef;
+  display: block;
+  aspect-ratio: 1 / 1;
 }
 
 .profile-picture-large {
@@ -171,13 +372,85 @@ code {
   object-fit: cover;
   border: 4px solid white;
   box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.08);
+  display: block;
+  aspect-ratio: 1 / 1;
 }
 
 .profile-picture-small {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid #e9ecef;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+.profile-picture-medium {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e9ecef;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
+/* Profile picture containers to ensure perfect circles */
+.profile-picture-container {
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f3f2ef;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profile-picture-container.small {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.profile-picture-container.medium {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+}
+
+.profile-picture-container.large {
+  width: 152px;
+  height: 152px;
+  min-width: 152px;
+  min-height: 152px;
+}
+
+/* Profile picture initials styling */
+.profile-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  border-radius: 50%;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.profile-initials.small {
+  font-size: 18px;
+}
+
+.profile-initials.medium {
+  font-size: 20px;
+}
+
+.profile-initials.large {
+  font-size: 48px;
 }
 
 /* Post Content Styling */

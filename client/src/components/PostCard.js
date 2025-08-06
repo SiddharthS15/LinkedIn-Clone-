@@ -71,29 +71,41 @@ const PostCard = ({ post, onPostUpdate }) => {
 
   const ProfilePicture = ({ user, size = 'sm' }) => {
     const sizeClass = size === 'lg' ? 'profile-picture-large' : 
+                     size === 'md' ? 'profile-picture-medium' :
                      size === 'sm' ? 'profile-picture-small' : 'profile-picture';
+    
+    const containerSizeClass = size === 'lg' ? 'large' : 
+                              size === 'md' ? 'medium' :
+                              size === 'sm' ? 'small' : 'small';
     
     if (user.profilePicture) {
       return (
-        <img 
-          src={user.profilePicture} 
-          alt={user.name}
-          className={sizeClass}
-        />
+        <div className={`profile-picture-container ${containerSizeClass}`}>
+          <img 
+            src={user.profilePicture} 
+            alt={user.name}
+            className={sizeClass}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block'
+            }}
+          />
+        </div>
       );
     }
     
     return (
-      <div 
-        className={`${sizeClass} d-flex align-items-center justify-content-center`}
-        style={{ 
-          backgroundColor: stringToColor(user.name || ''),
-          color: 'white',
-          fontWeight: 'bold',
-          fontSize: size === 'lg' ? '3rem' : size === 'sm' ? '0.75rem' : '1rem'
-        }}
-      >
-        {getInitials(user.name)}
+      <div className={`profile-picture-container ${containerSizeClass}`}>
+        <div 
+          className={`profile-initials ${containerSizeClass}`}
+          style={{ 
+            backgroundColor: stringToColor(user.name || ''),
+          }}
+        >
+          {getInitials(user.name)}
+        </div>
       </div>
     );
   };
@@ -103,7 +115,7 @@ const PostCard = ({ post, onPostUpdate }) => {
       <Card.Body className="p-3">
         {/* Post Header */}
         <div className="post-header d-flex align-items-start">
-          <ProfilePicture user={post.author} />
+          <ProfilePicture user={post.author} size="md" />
           <div className="ms-3 flex-grow-1">
             <div className="d-flex justify-content-between align-items-start">
               <div>

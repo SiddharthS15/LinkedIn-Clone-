@@ -57,27 +57,36 @@ const UserProfile = () => {
   const ProfilePicture = ({ user, size = 'lg' }) => {
     const sizeClass = size === 'lg' ? 'profile-picture-large' : 'profile-picture';
     
+    const containerSizeClass = size === 'lg' ? 'large' : 'small';
+    
     if (user.profilePicture) {
       return (
-        <img 
-          src={user.profilePicture} 
-          alt={user.name}
-          className={sizeClass}
-        />
+        <div className={`profile-picture-container ${containerSizeClass}`}>
+          <img 
+            src={user.profilePicture} 
+            alt={user.name}
+            className={sizeClass}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block'
+            }}
+          />
+        </div>
       );
     }
     
     return (
-      <div 
-        className={`${sizeClass} d-flex align-items-center justify-content-center`}
-        style={{ 
-          backgroundColor: stringToColor(user.name || ''),
-          color: 'white',
-          fontWeight: 'bold',
-          fontSize: size === 'lg' ? '3rem' : '1rem'
-        }}
-      >
-        {getInitials(user.name)}
+      <div className={`profile-picture-container ${containerSizeClass}`}>
+        <div 
+          className={`profile-initials ${containerSizeClass}`}
+          style={{ 
+            backgroundColor: stringToColor(user.name || ''),
+          }}
+        >
+          {getInitials(user.name)}
+        </div>
       </div>
     );
   };
