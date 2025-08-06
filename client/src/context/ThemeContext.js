@@ -20,7 +20,12 @@ export const ThemeProvider = ({ children }) => {
   // Update localStorage and apply theme class to body when theme changes
   useEffect(() => {
     localStorage.setItem('linkedin-theme', theme);
-    document.body.className = `theme-${theme}`;
+    // Apply the dark-theme class directly
+    if (theme === 'dark') {
+      document.body.className = 'dark-theme';
+    } else {
+      document.body.className = '';
+    }
   }, [theme]);
 
   const toggleTheme = () => {

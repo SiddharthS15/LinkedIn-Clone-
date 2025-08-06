@@ -6,7 +6,7 @@ import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const { user, logout, isAuthenticated } = useAuth();
-  const { theme, toggleTheme, isDark } = useTheme();
+  const { toggleTheme, isDark } = useTheme();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchFocused, setSearchFocused] = useState(false);
